@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script >
+      function storeFormData() {
+        var fname = document.getElementById("fName").value;
+        var lname = document.getElementById("lName").value;
+        var username = document.getElementById("Username").value;
+        var psw = document.getElementById("psw").value;
+        var psw_repeat = document.getElementById("psw-repeat").value;
+        var email = document.getElementById("Email").value;
+        var usertype = document.getElementById("typedd").value;
+        var lang = document.getElementById("s_lang").value;
+
+        var formData = {
+            fname: fname,
+            lname: lname,
+            username: username,
+            psw: psw,
+            psw_repeat: psw_repeat,
+            email: email,
+            usertype: usertype,
+            lang: lang,
+        };
+
+        localStorage.setItem('formData', JSON.stringify(formData));
+        //window.location.href = 'action_register.html';
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="register.html" aria-current="page">Home</a>
+      <a href="login.html">Other page</a>
+    </nav>
+    <main>
+      <form action="action_register.html" id="registerform">
+        <div class="container">
+          <a href="#">
+            <img
+              src="https://d3f06rtlkr354b.cloudfront.net/public/front/img/logoNew.png"
+              class="preprlabslogo"
+              alt="preprlogo"
+              style="width: 200px"
+            />
+          </a>
+          <hr />
+
+          <label for="fName"><b>First Name</b></label>
+          <input
+            type="text"
+            placeholder="Enter First Name"
+            name="fName"
+            id="fName"
+            required
+          />
+
+          <label for="lName"><b>Last Name</b></label>
+          <input
+            type="text"
+            placeholder="Enter Last Name"
+            name="lName"
+            id="lName"
+            required
+          />
+
+          <label for="Username"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="Username"
+            id="Username"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            required
+          />
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            id="psw-repeat"
+            required
+          />
+
+          <p>Password must include:</p>
+          <span>
+            <li>8 to 14 characters</li>
+            <li>1 uppercase letter</li>
+            <li>1 lowercase letter</li>
+            <li>1 number</li>
+            <li>1 special character</li>
+          </span>
+          <p>@#$%^&*?_~-()+={}[]|;:'“<>/,.</p>
+
+          <label for="Email"><b>Email</b></label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="Email"
+            id="Email"
+            required
+          />
+
+          <!-- Dropdown UserType List -->
+          <select name="UserType" id="typedd" required>
+            <option value="">User Type</option>
+            <option value="Learner">Learner</option>
+            <option value="JobSeekerApplicant">Job Seeker / Applicant</option>
+            <option value="Employee">Employee</option>
+            <option value="Founder">Founder</option>
+            <option value="Educator">Educator</option>
+            <option value="Mentor">Mentor</option>
+          </select>
+
+          <!-- Dropdown optional SelectLanguage List -->
+          <i style="padding: 0; margin: 0; float: right; color: grey">
+            Optional
+          </i>
+          <select id="s_lang">
+            <option value="SelectLang">Select Language</option>
+            <option value="English">English</option>
+            <option value="French">French</option>
+          </select>
+
+          <p>
+            By creating an account, you agree to the Prepr
+            <a href="#">Terms of use, Privacy policy and cookie policy</a>.
+          </p>
+          <button type="submit" class="registerbtn" onclick="storeFormData()">Register</button>
+        </div>
+      </form>
+      <h3 style="text-align: center; color: grey">or</h3>
+
+      <button type="submit" class="registerbtn">Continue with Google</button>
+
+      <div class="container signin">
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+        <p>Are you an organization? <a href="#">Organization register</a></p>
+      </div>
+    </main>
+  </body>
+</html>

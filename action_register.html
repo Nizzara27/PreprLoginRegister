@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        var outputDiv = document.getElementById('output');
+
+        var storedData = localStorage.getItem('formData');
+        if (storedData) {
+          var formData = JSON.parse(storedData);
+          var result = "<h2>Form Data:</h2><ul>";
+          result += "<li><strong>First Name:</strong> " + formData.fname + "</li>";
+          result += "<li><strong>Last Name:</strong> " + formData.lname + "</li>";
+          result += "<li><strong>Username:</strong> " + formData.username + "</li>";
+          result += "<li><strong>Password:</strong> " + formData.psw + "</li>";
+          result += "<li><strong>Password_Repeat:</strong> " + formData.psw_repeat + "</li>";
+          result += "<li><strong>Email:</strong> " + formData.email + "</li>";
+          result += "<li><strong>User Type:</strong> " + formData.usertype + "</li>";
+          result += "<li><strong>Selected Language:</strong> " + formData.lang + "</li>";
+          result += "</ul>";
+
+          outputDiv.innerHTML = result;
+        } else {
+          outputDiv.innerHTML = "<p>No form data found.</p>";
+        }
+      }
+    
+      // var fName = document.getElementById("fName").value;
+      // var lName = document.getElementById("lName").value;
+      // var username = document.getElementById("username").value;
+      // var lName = document.getElementById("psw").value;
+      // var fName = document.getElementById("psw-repeat").value;
+      // var email = document.getElementById("email").value;
+      // var usertype = document.getElementById("typedd").value;
+      // var slang = document.getElementById("s_lang").value;
+
+      // var output = document.getElementById("output");
+      // var result = "<h2>Form Data:</h2><ul>";
+      // result += "<li><strong>Name:</strong> " + name + "</li>";
+      // result += "<li><strong>Email:</strong> " + email + "</li>";
+      // result += "</ul>";
+
+      // output.innerHTML = result;
+
+      
+      // document.querySelector('form').addEventListener('submit', function (e) {
+      //   e.preventDefault();
+
+      //   var formData = new FormData(document.querySelector('form'));
+      //   // output as an object
+      //   console.log(Object.fromEntries(formData));
+
+      //   // ...or iterate through the name-value pairs
+      //   for (var pair of formData.entries()) {
+      //     console.log(pair[0] + ': ' + pair[1]);
+      //     alert('I am an alert box!');
+      //   }
+      // });
+    </script>
+    <style>
+      .error {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="output">
+      <p> Test </p>
+    </div>
+    
+  </body>
+</html>
